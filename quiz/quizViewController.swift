@@ -290,7 +290,7 @@ class quizViewController: UIViewController {
         {
             
             
-            
+            let storageRef = storage.reference(forURL: "YOUR FİREBASE STORAGE URL")
             let imageName = sorular[1].getResim()
             let islandRef = storageRef.child("images/\(imageName)")
             
