@@ -92,26 +92,29 @@ class quizViewController: UIViewController {
         
         let timerHeight = screenWidth / 32
         
-        let heightForLabelAndButton = (screenHeight - aspect - timerHeight) / 2
+        let heightForLabelAndButton = (screenHeight - aspect - timerHeight) / 4
         
         timerView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: timerHeight)
         
         soruLabel.frame = CGRect(x: 0, y:   timerHeight, width: screenWidth, height: heightForLabelAndButton)
         
-        
-        questionImage.frame = CGRect(x: 0, y: timerHeight + heightForLabelAndButton, width: screenWidth, height: aspect)
-        
-        
-        aSıkkı.frame = CGRect(x: 0, y:  timerHeight + heightForLabelAndButton  + aspect, width: screenWidth/2, height: heightForLabelAndButton/2)
+        soruLabel.sizeToFit()
+        soruLabel.textAlignment = .center
         
         
-        bSıkkı.frame = CGRect(x: screenWidth/2, y:  timerHeight + heightForLabelAndButton  + aspect, width: screenWidth/2, height: heightForLabelAndButton/2)
+        questionImage.frame = CGRect(x: 0, y: timerHeight + heightForLabelAndButton + (heightForLabelAndButton / 2), width: screenWidth, height: aspect)
         
         
-        cSıkkı.frame = CGRect(x: 0, y:  timerHeight + heightForLabelAndButton  + aspect + heightForLabelAndButton/2, width: screenWidth/2, height: heightForLabelAndButton/2)
+        aSıkkı.frame = CGRect(x: 0, y:  timerHeight + heightForLabelAndButton * 2 + aspect, width: screenWidth/2, height: heightForLabelAndButton)
         
         
-        dSIkkı.frame = CGRect(x: screenWidth/2, y:  timerHeight + heightForLabelAndButton  + aspect + heightForLabelAndButton/2, width: screenWidth/2, height: heightForLabelAndButton/2)
+        bSıkkı.frame = CGRect(x: screenWidth/2, y:  timerHeight + heightForLabelAndButton * 2 + aspect, width: screenWidth/2, height: heightForLabelAndButton)
+        
+        
+        cSıkkı.frame = CGRect(x: 0, y:  timerHeight + heightForLabelAndButton * 2 + aspect + heightForLabelAndButton, width: screenWidth/2, height: heightForLabelAndButton)
+        
+        
+        dSIkkı.frame = CGRect(x: screenWidth/2, y:  timerHeight + heightForLabelAndButton * 2  + aspect + heightForLabelAndButton, width: screenWidth/2, height: heightForLabelAndButton)
         
         
     }
@@ -194,11 +197,11 @@ class quizViewController: UIViewController {
         timerView.frame.size.width = screenWidth
         questionTime = 8
         soruLabel.text = sorular[0].getSoru()
-        aSıkkı.titleLabel!.text = sorular[0].getAsıkkı()
-        bSıkkı.titleLabel!.text = sorular[0].getBsıkkı()
-        cSıkkı.titleLabel!.text =   sorular[0].getCsıkkı()
-        dSIkkı.titleLabel!.text = sorular[0].getDsıkkı()
         
+        aSıkkı.setTitle( sorular[0].getAsıkkı(), for: UIControlState.normal)
+        bSıkkı.setTitle(sorular[0].getBsıkkı(), for: UIControlState.normal)
+        cSıkkı.setTitle(sorular[0].getCsıkkı(), for: UIControlState.normal)
+        dSIkkı.setTitle(sorular[0].getDsıkkı(), for: UIControlState.normal)
         
         aSıkkı.backgroundColor = UIColor.randomColor()
         bSıkkı.backgroundColor = UIColor.randomColor()
@@ -290,7 +293,12 @@ class quizViewController: UIViewController {
         {
             
             
+<<<<<<< Updated upstream
             let storageRef = storage.reference(forURL: "YOUR FİREBASE STORAGE URL")
+=======
+         //   let storageRef = storage.reference(forURL: "YOUR FİREBASE STORAGE URL")
+            
+>>>>>>> Stashed changes
             let imageName = sorular[1].getResim()
             let islandRef = storageRef.child("images/\(imageName)")
             
