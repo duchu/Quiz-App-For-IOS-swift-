@@ -293,13 +293,9 @@ class quizViewController: UIViewController {
         {
             
             
-<<<<<<< Updated upstream
-            let storageRef = storage.reference(forURL: "YOUR FİREBASE STORAGE URL")
-=======
          //   let storageRef = storage.reference(forURL: "YOUR FİREBASE STORAGE URL")
             
->>>>>>> Stashed changes
-            let imageName = sorular[1].getResim()
+             let imageName = sorular[1].getResim()
             let islandRef = storageRef.child("images/\(imageName)")
             
             // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
